@@ -6,6 +6,13 @@
         a:visited {color:green; background-color:transparent; text-decoration:none}
         a:hover {color:red; background-color:transparent; text-decoration:underline}
         a:active {color:black; background-color:transparent; text-decoration:underline}
+
+        frameset{
+        width: 10%;
+        height: 90%;
+        }
+
+
     </style>
 </head>
 <body>
@@ -15,20 +22,24 @@
     <fieldset>
         <legend>Hello, please select one link!</legend>
         <br>
-        <a href="https://github.com/Zornica/buildtools" target="_blank">Github</a>
+        <a href="https://github.com/Zornica/buildtools" target="_blank">Github/Zornica/buildtools</a>
         <br>
-        <a href="https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html" target="url">Some page</a>
+        <a href="./local/registration.html" target="-blank">Html page from local computer</a>
         <br>
-        <a href="/home/clouway/Zornica/workspaces/idea/Input - Output/" target="url1"> Local url</a>
+        <a href="./" target="url1"> directory from local computer</a>
+        <br>
+        <a href="./local/file.txt" target="url"> file  from local computer</a>
     </fieldset>
 </form>
+
 <br>
 <br>
 <br>
-<frameset cols="15%,70%,15%">
+
+<frameset >
     <iframe name="url"></iframe>
     <iframe name="url1"></iframe>
 </frameset>
-<br>
+
 </body>
         </html>
