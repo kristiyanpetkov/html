@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="calculator.css"/>
+
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="display">
+
+        <input type="text" readonly size="18" class="text">
+
+    </div>
+
+    <div class="keys">
+
+        <p><input type="reset" class="button black" name="C" value="C">
+            <input type="button" class="button black" value="CE" onclick="clearLastSymbol()"></p>
+
+        <p><input type="button" class="button black" value="7" onclick="value(7)">
+            <input type="button" class="button black" value="8" onclick="value(8)">
+            <input type="button" class="button black" value="9" onclick="value(9)">
+            <input type="button" class="button pink" value="*" onclick="value(*)"></p>
+
+        <p><input type="button" class="button black" value="4" onclick="value(4)">
+            <input type="button" class="button black" value="5" onclick="value(5)">
+            <input type="button" class="button black" value="6" onclick="value(6)">
+            <input type="button" class="button pink" value="-" onclick="value(-)"></p>
+
+        <p><input type="button" class="button black" value="1" onclick="value(1)">
+            <input type="button" class="button black" value="2" onclick="value(2)">
+            <input type="button" class="button black" value="3" onclick="value(3)">
+            <input type="button" class="button pink" value="+" onclick="value(+)"></p>
+
+        <p><input type="button" class="button black" value="0" onclick="value(0)">
+            <input type="button" class="button black" value="." onclick="value(.)">
+            <input type="button" class="button orange" value="=" onclick="result()">
+            <input type="button" class="button pink" value="/" onclick="value(/)"></p>
+
+    </div>
+
+</div>
+
+<script>
+function result(){
+  var result = eval(document.getElementByClassName("text").value);
+  if(result != ""){
+       document.getElementByClassName("text").value=result;
+  }
+  else{
+       document.getElementByClassName("text").value="ERROR";
+  }
+}
+
+function value(elem) {
+   document.getElementByClassName("text")+=elem;
+}
+
+function clearLastSymbol() {
+    var val = document.getElementByClassName("text");
+    var lastIndex = val.innerHTML.length - 1;
+    val.innerHTML = val.innerHTML.substring(0, lastIndex);
+}
+
+</script>
+
+</body>
+
+</html>

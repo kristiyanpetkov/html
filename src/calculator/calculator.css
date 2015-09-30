@@ -46,6 +46,8 @@ border-top:2px 303030 solid;
 .button.orange
 {
 color:black;
+background-color:orange;
+border-bottom:black 2px solid;
 }
 
 .display
@@ -60,9 +62,9 @@ height:40px;
 
 .display input
 {
-left:2px;
-top:2px;
-height:35px;
+left:3px;
+top:3px;
+height:32px;
 color:black;
 background-color:FloralWhite ;
 text-align:right;
