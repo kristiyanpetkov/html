@@ -1,5 +1,3 @@
-
-
 .box
 {
 background-color:LightSlateGray  ;
@@ -53,7 +51,7 @@ border-bottom:black 2px solid;
 .display
 {
 background-color:FloralWhite ;
-width:220px;
+width:150px;
 position:relative;
 left:15px;
 top:20px;
@@ -62,9 +60,9 @@ height:40px;
 
 .display input
 {
-left:3px;
-top:3px;
-height:32px;
+left:2px;
+top:2px;
+height:35px;
 color:black;
 background-color:FloralWhite ;
 text-align:right;
@@ -95,5 +93,8 @@ line-height:10px;
 }
 
 text{
+left:2px;
+top:2px;
+height:35px;
 text-align:right;
 }

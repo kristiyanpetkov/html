@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="calculator.css"/>
+
+
+</head>
+
+<body>
+
+<div class="box">
+
+
+    <div class="display">
+
+        <input id="calcvalue" type="text" readonly size="18" class="text" pattern="[0-9]{1,10}+.[0-9]{0,5}$">
+
+    </div>
+
+    <div class="keys">
+
+        <p><input type="button" class="button black" name="C" value="C" onclick="clearAll()">
+            <input type="button" class="button black" value="CE" onclick="clearSymbol()"></p>
+
+        <p><input type="button" class="button black" value="7" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="8" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="9" onclick="appendDigit(this)">
+            <input type="button" class="button pink" value="*" onclick="appendDigit(this)"></p>
+
+        <p><input type="button" class="button black" value="4" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="5" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="6" onclick="appendDigit(this)">
+            <input type="button" class="button pink" value="-" onclick="appendDigit(this)"></p>
+
+        <p><input type="button" class="button black" value="1" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="2" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="3" onclick="appendDigit(this)">
+            <input type="button" class="button pink" value="+" onclick="appendDigit(this)"></p>
+
+        <p><input type="button" class="button black" value="0" onclick="appendDigit(this)">
+            <input type="button" class="button black" value="." onclick="appendDigit(this)">
+            <input type="button" class="button orange" value="=" onclick="result()">
+            <input type="button" class="button pink" value="/" onclick="appendDigit(this)"></p>
+
+    </div>
+
+</div>
+
+<script>
+
+    var val = document.getElementById("calcvalue");
+
+        function result() {
+            var result = eval(val.value);
+            if (val.value != "") {
+                val.value = result;
+            }
+            else {
+               val.value = "ERROR";
+            }
+        }
+
+    function appendDigit(digit) {
+        if(val.value == "") {
+            val.value = digit.value;
+        } else {
+            val.value += digit.value;
+        }
+        console.log(val.value);
+    }
+
+
+    function clearSymbol() {
+        var lastIndex = val.value.length - 1;
+        val.value = val.value.substring(0, lastIndex);
+
+    }
+
+    function clearAll(){
+        val.value = "";
+
+    }
+
+
+</script>
+
+</body>
+
+</html>
