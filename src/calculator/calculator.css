@@ -1,100 +1,87 @@
-.box
-{
-background-color:LightSlateGray  ;
-height:300px;
-width:250px;
-border-radius:10px;
-position:relative;
-top:80px;
-left:40%;
+.box {
+    background-color: LightSlateGray;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    position: relative;
+    top: 80px;
+    left: 40%;
 }
 
-.keys
-{
-position:relative;
-top:15px;
+.keys {
+    position: relative;
+    top: 15px;
 }
 
-.button
-{
-width:40px;
-height:30px;
-border:none;
-border-radius:8px;
-margin-left:17px;
-cursor:pointer;
-border-top:2px solid transparent;
+.button {
+    width: 40px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 17px;
+    cursor: pointer;
+    border-top: 2px solid transparent;
 }
 
-.button.pink
-{
-color:black;
-background-color:#ff4561;
-border-bottom:black 2px solid;
+.button.pink {
+    color: black;
+    background-color: #ff4561;
+    border-bottom: black 2px solid;
 }
 
-.button.black
-{
-color:black;
-background-color:303030;
-border-bottom:black 2px solid;
-border-top:2px 303030 solid;
+.button.black {
+    color: black;
+    background-color: aliceblue;
+    border-bottom: black 2px solid;
+    border-top: 2px #303030 solid;
 }
 
-.button.orange
-{
-color:black;
-background-color:orange;
-border-bottom:black 2px solid;
+.button.orange {
+    color: black;
+    background-color: orange;
+    border-bottom: black 2px solid;
 }
 
-.display
-{
-background-color:FloralWhite ;
-width:150px;
-position:relative;
-left:15px;
-top:20px;
-height:40px;
+.display {
+    background-color: FloralWhite;
+    width: 150px;
+    position: relative;
+    left: 15px;
+    top: 20px;
+    height: 40px;
 }
 
-.display input
-{
-left:2px;
-top:2px;
-height:35px;
-color:black;
-background-color:FloralWhite ;
-text-align:right;
+.display input {
+    left: 2px;
+    top: 2px;
+    height: 35px;
+    color: black;
+    background-color: FloralWhite;
+    text-align: right;
 }
 
-
-.pink:active
-{
-border-top:black 2px solid;
-border-bottom:#ff4561 2px solid;
+.pink:active {
+    border-top: black 2px solid;
+    border-bottom: #ff4561 2px solid;
 }
 
-.black:active
-{
-border-top:black 2px solid;
-border-bottom:#303030 2px solid;
+.black:active {
+    border-top: black 2px solid;
+    border-bottom: #303030 2px solid;
 }
 
-.orange:active
-{
-border-top:black 2px solid;
-border-bottom:FF9933 2px solid;
+.orange:active {
+    border-top: black 2px solid;
+    border-bottom: #FF9933 2px solid;
 }
 
-p
-{
-line-height:10px;
+p {
+    line-height: 10px;
 }
 
-text{
-left:2px;
-top:2px;
-height:35px;
-text-align:right;
+.textField {
+    left: 2px;
+    top: 2px;
+    height: 35px;
+    text-align: right;
 }

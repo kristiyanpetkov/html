@@ -14,7 +14,7 @@
 
     <div class="display">
 
-        <input id="calcvalue" type="text" readonly size="18" class="text" >
+        <input id="calcvalue" type="textField" readonly size="18" class="text">
 
     </div>
 
@@ -51,18 +51,18 @@
 
     var val = document.getElementById("calcvalue");
 
-        function result() {
-            var result = eval(val.value);
-            if (val.value != "") {
-                val.value = result;
-            }
-            else {
-               val.value = "ERROR";
-            }
+    function result() {
+        var result = eval(val.value);
+        if (val.value != "") {
+            val.value = result;
         }
+        else {
+            val.value = "ERROR";
+        }
+    }
 
     function appendDigit(digit) {
-        if(val.value == "") {
+        if (val.value == "") {
             val.value = digit.value;
         } else {
             val.value += digit.value;
@@ -77,7 +77,7 @@
 
     }
 
-    function clearAll(){
+    function clearAll() {
         val.value = "";
 
     }

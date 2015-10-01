@@ -1,10 +1,27 @@
- a:link {color:blue; background-color:transparent; text-decoration:none}
-        a:visited {color:green; background-color:transparent; text-decoration:none}
-        a:hover {color:red; background-color:transparent; text-decoration:underline}
-        a:active {color:black; background-color:transparent; text-decoration:underline}
+a:link {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none
+}
 
+a:visited {
+    color: green;
+    background-color: transparent;
+    text-decoration: none
+}
 
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline
+}
 
-        iframe{
-            background-color: gainsboro;
-        }
+a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline
+}
+
+iframe {
+    background-color: gainsboro;
+}
