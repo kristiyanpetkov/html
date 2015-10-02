@@ -94,6 +94,7 @@
 
     function isValid(element) {
         var pattern = element.getAttribute("pattern");
+        console.log(typeof  pattern);
         var value = element.value;
         console.log(value+" "+pattern);
         var valid = value.search(pattern);

@@ -26,22 +26,22 @@
         <p><input type="button" class="button black" value="7" onclick="appendDigit(this)">
             <input type="button" class="button black" value="8" onclick="appendDigit(this)">
             <input type="button" class="button black" value="9" onclick="appendDigit(this)">
-            <input type="button" class="button pink" value="*" onclick="appendDigit(this)"></p>
+            <input type="button" class="button pink" value="*" onclick="operation(this)"></p>
 
         <p><input type="button" class="button black" value="4" onclick="appendDigit(this)">
             <input type="button" class="button black" value="5" onclick="appendDigit(this)">
             <input type="button" class="button black" value="6" onclick="appendDigit(this)">
-            <input type="button" class="button pink" value="-" onclick="appendDigit(this)"></p>
+            <input type="button" class="button pink" value="-" onclick="operation(this)"></p>
 
         <p><input type="button" class="button black" value="1" onclick="appendDigit(this)">
             <input type="button" class="button black" value="2" onclick="appendDigit(this)">
             <input type="button" class="button black" value="3" onclick="appendDigit(this)">
-            <input type="button" class="button pink" value="+" onclick="appendDigit(this)"></p>
+            <input type="button" class="button pink" value="+" onclick="operation(this)"></p>
 
         <p><input type="button" class="button black" value="0" onclick="appendDigit(this)">
             <input type="button" class="button black" value="." onclick="appendDigit(this)">
             <input type="button" class="button orange" value="=" onclick="result()">
-            <input type="button" class="button pink" value="/" onclick="appendDigit(this)"></p>
+            <input type="button" class="button pink" value="/" onclick="operation(this)"></p>
 
     </div>
 
@@ -50,9 +50,11 @@
 <script>
 
     var val = document.getElementById("calcvalue");
+    var task = "";
 
     function result() {
-        var result = eval(val.value);
+        var result = eval(task);
+        console.log(result + " " + task);
         if (val.value != "") {
             val.value = result;
         }
@@ -63,11 +65,46 @@
 
     function appendDigit(digit) {
         if (val.value == "") {
-            val.value = digit.value;
+            valueOnFirstPosition(digit);
         } else {
-            val.value += digit.value;
+            setValue(digit);
         }
-        console.log(val.value);
+    }
+
+    function valueOnFirstPosition(digit) {
+        if (digit.value == ".") {
+            return;
+        } else {
+            val.value = digit.value;
+        }
+    }
+
+    function setValue(digit) {
+        var value = val.value;
+        console.log(value+" "+value.search("."));
+
+        if (digit.value == "." && value.search(".")) {
+                return;
+            }
+            else {
+                val.value += digit.value;
+                console.log(val.value);
+            }
+
+    }
+
+
+    function operation(digit) {
+      /*  var regex = "[0-9]{1,10}+.[0-9]{0.5}$";
+        if (val.value.search(".")) {
+            if (!val.value.search(regex)) {
+                val.value = "Incorrect value";
+                return;
+            }
+        }*/
+        task += val.value + digit.value;
+        val.value = "";
+        console.log(task);
     }
 
 
@@ -79,6 +116,7 @@
 
     function clearAll() {
         val.value = "";
+        task = "";
 
     }
 
