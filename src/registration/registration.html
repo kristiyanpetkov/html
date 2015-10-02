@@ -2,68 +2,91 @@
 <html>
 <head>
     <link rel="stylesheet" href="registration.css"/>
+
 </head>
 <body>
 <form name="form">
     <fieldset>
-        <legend>Personal information:</legend>
-        First name:
-        <input class="textField" type="text" name="firstname" pattern="[a-zA-Z]{1,15}$"> <sup><i> Must be between 1 and
-        15 symbols.</i></sup>
-        <br>
-        <br>
-        Last name:
-        <input class="textField" type="text" name="lastname" pattern="[a-zA-Z]{1,15}$"><sup><i> Must be between 1 and 15
-        symbols.</i></sup>
-        <br>
-        <br>
-        EGN:
-        <input class="textField" type="text" name="EGN" pattern="[0-9]{10}$"><sup><i> Must be 10 symbols.</i></sup>
-        <br>
-        <br>
-        Age:
-        <input class="textField" type="text" name="age" pattern="[0-9]{2,3}$"><sup><i> Must be between 18 and
-        118.</i></sup>
-        <br>
-        <br>
-        Address:
-        <input class="textField" type="text" name="address" pattern="[a-zA-Z0-9.,:']{1,100}$"><sup><i> Must be between 1
-        and 100 symbols.</i></sup>
-        <br>
-        <br>
-        Password:
-        <input class="textField" type="password" name="password" pattern="([a-zA-Z0-9]){6,18}$"><sup><i> Must be between
-        6 and 8 symbols.</i></sup>
-        <br>
-        <br>
-        Confirm password:
-        <input class="textField" type="password" name="confirmPassword" pattern="([a-zA-Z0-9]){6,18}$"><sup><i> Must be
-        between 6 and 8 symbols.</i></sup>
-        <br>
-        <br>
-        <input type="button" name="submit" value="Submit" onclick="validateForm()">
+        <legend style="color: midnightblue">Personal information:</legend>
+       <p><div>
+           <label for="firstName" class="dataUser">First Name:</label>
+
+               <input id="firstName" class="textField" type="text" pattern="([A-Za-z]){1,15}$" name="firstName" placeholder="First name"/>
+        <div id="firstNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div></div>
+           </div>
+
+        </p>
+
+       <p><div>
+        <label for="lastName" class="dataUser">Last Name</label>
+
+
+            <input id="lastName" class="textField" type="text" pattern="([a-zA-Z]){1,15}$" name="lastName" placeholder="Last name"/>
+        <div id="lastNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div>
+        </div>
+
+            </p>
+        <p><div>
+          <label for="EGN" class="dataUser">EGN:</label>
+
+            <input id="EGN" class="textField" type="text" pattern="[0-9]{10}$" name="EGN" placeholder="EGN"/>
+        <div id="EGNMessage" class="message"><sup><i> Must be 10 symbols.</i></sup></div>
+        </div>
+        </p>
+           <p>
+           <div><label for="age" class="dataUser">Age:</label>
+        <input id="age" name="age" type="number" min="18" max="118" placeholder="Age">
+            </div>
+           </p>
+           <p><div>
+        <label for="address" class="dataUser">Address:</label>
+
+            <input id="address" class="textField" type="text" pattern="([a-zA-Z0-9.,:']){1,100}$"  name="address" placeholder="Address"/>
+        <div id="addressMessage" class="message"><sup><i> Must be between 1 and 100 symbols.</i></sup></div>
+        </div>
+           </p>
+           <p><div>
+        <label for="password" class="dataUser">Password:</label>
+
+            <input id="password" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="password" placeholder="Password"/>
+        <div id="passwordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        </div>
+           </p>
+           <p><div>
+        <label for="confirmPassword" class="dataUser">Confirm password:</label>
+
+            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="ConfirmPassword" placeholder="Confirm password"/>
+        <div id="ConfirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        </div>
+           </p>
+           <p>
+           <input type="button" name="submit" value="Submit" onclick="validateForm()">
         <input type="reset" name="clear" value="Clear">
-        <br>
-        <br>
+           </p>
+
+       </div>
     </fieldset>
 </form>
 
-
 <script>
-    var err = 0;
+
+    var err=0;
 
     function validateForm() {
         var list = document.getElementsByClassName("textField");
+        console.log(list.length);
         for (var i = 0; i < list.length; i++) {
             var element = list.item(i);
-            if (element.value.length == 0) {
-                alert("The " + element.name + " is empty!");
+            if(element.name == "confirmPassword") {
+                confirmPassword();
+                continue;
+            }
+            if(element.value.length == 0) {
+                alert("There are empty fields!");
                 err++;
+                return;
             } else {
                 isValid(element);
-            }
-            if (element.name == "confirmPassword") {
-                password();
             }
         }
         showRegistrationMessage();
@@ -72,18 +95,22 @@
     function isValid(element) {
         var pattern = element.getAttribute("pattern");
         var value = element.value;
+        console.log(value+" "+pattern);
         var valid = value.search(pattern);
-        if (element.name == "age" && (value < 18 || value > 118)) {
-            alert("The age must be between 18 and 118!");
-            err++;
-        }
+console.log(valid + " "+element);
         showMessage(valid, element);
     }
 
     function showMessage(valid, element) {
+        var errorElement = document.getElementById(element.name+"Message");
+        console.log(errorElement);
         if (valid == -1) {
-            alert("The " + element.name + " is not valid!");
+            errorElement.setAttribute("style", "color: red;");
+            errorElement.value = "wrong";
             err++;
+        } else {
+            errorElement.setAttribute("style", "color: green;");
+            errorElement.value = "valid";
         }
     }
 
@@ -91,7 +118,7 @@
         var pass1 = document.getElementsByName("password");
         var pass2 = document.getElementsByName("confirmPassword");
         if (pass1.value != pass2.value) {
-            alert("The password is not valid!");
+            pass2.value = "The password not valid!";
             err++;
         }
     }

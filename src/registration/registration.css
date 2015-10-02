@@ -1,3 +1,17 @@
 .textField {
     text-align: left;
 }
+
+form {
+    background-color: floralwhite;
+    position: absolute;
+}
+
+.glyphicon-ok:before {
+    content: "\e013"
+}
+
+.message{
+    text-align: left;
+    color: blue;
+}
