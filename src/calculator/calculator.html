@@ -53,6 +53,7 @@
     var task = "";
 
     function result() {
+        task +=val.value;
         var result = eval(task);
         console.log(result + " " + task);
         if (val.value != "") {
@@ -82,26 +83,18 @@
     function setValue(digit) {
         var value = val.value;
         console.log(value+" "+value.search("."));
-
-        if (digit.value == "." && value.search(".")) {
+        for(var i=0;i<value.length;i++) {
+            if (digit.value == "." && value.charAt(i)==".") {
                 return;
             }
-            else {
-                val.value += digit.value;
-                console.log(val.value);
-            }
+        }
+        val.value += digit.value;
+        console.log(val.value);
 
     }
 
 
     function operation(digit) {
-      /*  var regex = "[0-9]{1,10}+.[0-9]{0.5}$";
-        if (val.value.search(".")) {
-            if (!val.value.search(regex)) {
-                val.value = "Incorrect value";
-                return;
-            }
-        }*/
         task += val.value + digit.value;
         val.value = "";
         console.log(task);
