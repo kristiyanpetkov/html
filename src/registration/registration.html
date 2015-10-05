@@ -96,7 +96,7 @@
         var value = element.value;
         console.log(value+" "+pattern);
         var valid = value.search(pattern);
-console.log(valid + " "+element);
+        
         showMessage(valid, element);
     }
 
@@ -115,6 +115,7 @@ console.log(valid + " "+element);
         var pass1 = document.getElementById("password");
         var pass2 = document.getElementById("confirmPassword");
         if (pass1.value != pass2.value) {
+            console.log(pass1.value + " " + pass2.value);
             var error = document.getElementById("confirmPasswordMessage");
             error.setAttribute("style", "color: red;");
             err++;
