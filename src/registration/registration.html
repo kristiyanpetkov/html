@@ -105,11 +105,9 @@ console.log(valid + " "+element);
         console.log(errorElement);
         if (valid == -1) {
             errorElement.setAttribute("style", "color: red;");
-            errorElement.value = "wrong";
             err++;
         } else {
             errorElement.setAttribute("style", "color: green;");
-            errorElement.value = "valid";
         }
     }
 
@@ -117,7 +115,8 @@ console.log(valid + " "+element);
         var pass1 = document.getElementById("password");
         var pass2 = document.getElementById("confirmPassword");
         if (pass1.value != pass2.value) {
-            alert( "The password not valid!");
+            var error = document.getElementById("confirmPasswordMessage");
+            error.setAttribute("style", "color: red;");
             err++;
         }
     }
