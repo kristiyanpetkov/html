@@ -55,8 +55,8 @@
            <p><div>
         <label for="confirmPassword" class="dataUser">Confirm password:</label>
 
-            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="ConfirmPassword" placeholder="Confirm password"/>
-        <div id="ConfirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="confirmPassword" placeholder="Confirm password"/>
+        <div id="confirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
         </div>
            </p>
            <p>
@@ -73,6 +73,7 @@
     var err=0;
 
     function validateForm() {
+        err=0;
         var list = document.getElementsByClassName("textField");
         console.log(list.length);
         for (var i = 0; i < list.length; i++) {
@@ -116,15 +117,16 @@ console.log(valid + " "+element);
     }
 
     function confirmPassword() {
-        var pass1 = document.getElementsByName("password");
-        var pass2 = document.getElementsByName("confirmPassword");
+        var pass1 = document.getElementById("password");
+        var pass2 = document.getElementById("confirmPassword");
         if (pass1.value != pass2.value) {
-            pass2.value = "The password not valid!";
+            alert( "The password not valid!");
             err++;
         }
     }
 
     function showRegistrationMessage() {
+        console.log(err);
         if (err == 0) {
             alert("You have successfully signed!");
         }
