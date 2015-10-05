@@ -65,6 +65,18 @@
            </p>
 
        </div>
+
+        <div id="errorMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
+
+            <strong>Warning!</strong> There are empty fields!
+            
+        </div>
+
+        <div id="successMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
+
+            <strong>Success!</strong> You have successfully signed!
+
+        </div>
     </fieldset>
 </form>
 
@@ -72,14 +84,19 @@
 
     var err=0;
 
+
+
     function validateForm() {
         err=0;
+
         var list = document.getElementsByClassName("textField");
         console.log(list.length);
         for (var i = 0; i < list.length; i++) {
             var element = list.item(i);
             if(element.value.length == 0) {
-                alert("There are empty fields!");
+                var message = document.getElementById("errorMessage");
+                message.setAttribute("style","display: outside;" );
+                message.setAttribute("style", "color: red;");
                 err++;
                 return;
             } else {
@@ -96,7 +113,7 @@
         var value = element.value;
         console.log(value+" "+pattern);
         var valid = value.search(pattern);
-        
+
         showMessage(valid, element);
     }
 
@@ -125,7 +142,12 @@
     function showRegistrationMessage() {
         console.log(err);
         if (err == 0) {
-            alert("You have successfully signed!");
+            var warning = document.getElementById("errorMessage");
+            warning.setAttribute("style","display: none");
+            var message = document.getElementById("successMessage");
+            message.setAttribute("style","display: outside;" );
+            message.setAttribute("style", "color: green;");
+
         }
     }
 
