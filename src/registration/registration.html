@@ -109,7 +109,7 @@
 
     var err = 0;
 
-    var password = {
+    var additionalFuncs = [{
         targetId:"confirmPassword", invoke: function (element, elem) {
             console.log(element.id);
             if (element.value != elem.value) {
@@ -118,9 +118,8 @@
                 err++;
             }
         }
-    };
-    var additionalFuncs = [];
-    additionalFuncs.push(password);
+    }];
+
 
     function validateForm() {
         err = 0;
@@ -137,7 +136,6 @@
                 isValid(element);
             }
             for (var j = 0; j < additionalFuncs.length; j++) {
-                console.log(additionalFuncs[j]);
                 if (additionalFuncs[j].targetId == element.id) {
                     var elem = list.item(i - 1);
                     additionalFuncs[j].invoke(element, elem);
