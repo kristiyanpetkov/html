@@ -69,7 +69,7 @@
         <div id="errorMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
 
             <strong>Warning!</strong> There are empty fields!
-            
+
         </div>
 
         <div id="successMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
@@ -102,8 +102,11 @@
             } else {
                 isValid(element);
             }
+            if(element.id == "confirmPassword"){
+                var elem = list.item(i-1);
+                confirmPassword(element, elem);
+            }
         }
-        confirmPassword();
         showRegistrationMessage();
     }
 
@@ -128,11 +131,8 @@
         }
     }
 
-    function confirmPassword() {
-        var pass1 = document.getElementById("password");
-        var pass2 = document.getElementById("confirmPassword");
-        if (pass1.value != pass2.value) {
-            console.log(pass1.value + " " + pass2.value);
+    function confirmPassword(element,elem) {
+        if (element.value != elem.value) {
             var error = document.getElementById("confirmPasswordMessage");
             error.setAttribute("style", "color: red;");
             err++;
