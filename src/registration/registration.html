@@ -136,10 +136,12 @@
             } else {
                 isValid(element);
             }
-
-            if (additionalFuncs[0].targetId == element.id) {
-                var elem = list.item(i - 1);
-                additionalFuncs[0].invoke(element,elem);
+            for (var j = 0; j < additionalFuncs.length; j++) {
+                console.log(additionalFuncs[j]);
+                if (additionalFuncs[j].targetId == element.id) {
+                    var elem = list.item(i - 1);
+                    additionalFuncs[j].invoke(element, elem);
+                }
             }
 
         }
@@ -151,7 +153,6 @@
         var value = element.value;
         console.log(value + " " + pattern);
         var valid = value.search(pattern);
-
         showMessage(valid, element);
     }
 
