@@ -8,71 +8,96 @@
 <form name="form">
     <fieldset>
         <legend style="color: midnightblue">Personal information:</legend>
-       <p><div>
-           <label for="firstName" class="dataUser">First Name:</label>
+        <p>
 
-               <input id="firstName" class="textField" type="text" pattern="([A-Za-z]){1,15}$" name="firstName" placeholder="First name"/>
-        <div id="firstNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div></div>
-           </div>
+        <div>
+            <label for="firstName" class="dataUser">First Name:</label>
+
+            <input id="firstName" class="textField" type="text" pattern="([A-Za-z]){1,15}$" name="firstName"
+                   placeholder="First name"/>
+
+            <div id="firstNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div>
+        </div>
+        </div>
 
         </p>
 
-       <p><div>
-        <label for="lastName" class="dataUser">Last Name</label>
+        <p>
+
+        <div>
+            <label for="lastName" class="dataUser">Last Name</label>
 
 
-            <input id="lastName" class="textField" type="text" pattern="([a-zA-Z]){1,15}$" name="lastName" placeholder="Last name"/>
-        <div id="lastNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div>
+            <input id="lastName" class="textField" type="text" pattern="([a-zA-Z]){1,15}$" name="lastName"
+                   placeholder="Last name"/>
+
+            <div id="lastNameMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div>
         </div>
 
-            </p>
-        <p><div>
-          <label for="EGN" class="dataUser">EGN:</label>
+        </p>
+        <p>
+
+        <div>
+            <label for="EGN" class="dataUser">EGN:</label>
 
             <input id="EGN" class="textField" type="text" pattern="[0-9]{10}$" name="EGN" placeholder="EGN"/>
-        <div id="EGNMessage" class="message"><sup><i> Must be 10 symbols.</i></sup></div>
+
+            <div id="EGNMessage" class="message"><sup><i> Must be 10 symbols.</i></sup></div>
         </div>
         </p>
-           <p>
-           <div><label for="age" class="dataUser">Age:</label>
-        <input id="age" name="age" type="number" min="18" max="118" placeholder="Age">
-            </div>
-           </p>
-           <p><div>
-        <label for="address" class="dataUser">Address:</label>
+        <p>
 
-            <input id="address" class="textField" type="text" pattern="([a-zA-Z0-9.,:']){1,100}$"  name="address" placeholder="Address"/>
-        <div id="addressMessage" class="message"><sup><i> Must be between 1 and 100 symbols.</i></sup></div>
+        <div><label for="age" class="dataUser">Age:</label>
+            <input id="age" name="age" type="number" min="18" max="118" placeholder="Age">
         </div>
-           </p>
-           <p><div>
-        <label for="password" class="dataUser">Password:</label>
+        </p>
+        <p>
 
-            <input id="password" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="password" placeholder="Password"/>
-        <div id="passwordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        <div>
+            <label for="address" class="dataUser">Address:</label>
+
+            <input id="address" class="textField" type="text" pattern="([a-zA-Z0-9.,:']){1,100}$" name="address"
+                   placeholder="Address"/>
+
+            <div id="addressMessage" class="message"><sup><i> Must be between 1 and 100 symbols.</i></sup></div>
         </div>
-           </p>
-           <p><div>
-        <label for="confirmPassword" class="dataUser">Confirm password:</label>
+        </p>
+        <p>
 
-            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="confirmPassword" placeholder="Confirm password"/>
-        <div id="confirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        <div>
+            <label for="password" class="dataUser">Password:</label>
+
+            <input id="password" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="password"
+                   placeholder="Password"/>
+
+            <div id="passwordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
         </div>
-           </p>
-           <p>
-           <input type="button" name="submit" value="Submit" onclick="validateForm()">
-        <input type="reset" name="clear" value="Clear">
-           </p>
+        </p>
+        <p>
 
-       </div>
+        <div>
+            <label for="confirmPassword" class="dataUser">Confirm password:</label>
 
-        <div id="errorMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
+            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$"
+                   name="confirmPassword" placeholder="Confirm password"/>
+
+            <div id="confirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        </div>
+        </p>
+        <p>
+            <input type="button" name="submit" value="Submit" onclick="validateForm()">
+            <input type="reset" name="clear" value="Clear">
+        </p>
+
+        </div>
+
+        <div id="errorMessage" style="display: none">
 
             <strong>Warning!</strong> There are empty fields!
 
         </div>
 
-        <div id="successMessage" class="alert alert-warning alert-dismissible" role="alert" style="display: none">
+        <div id="successMessage" style="display: none">
 
             <strong>Success!</strong> You have successfully signed!
 
@@ -82,47 +107,57 @@
 
 <script>
 
-    var err=0;
+    var err = 0;
 
-
+    var password = {
+        targetId:"confirmPassword", invoke: function (element, elem) {
+            console.log(element.id);
+            if (element.value != elem.value) {
+                var error = document.getElementById("confirmPasswordMessage");
+                error.setAttribute("style", "color: red;");
+                err++;
+            }
+        }
+    };
+    var additionalFuncs = [];
+    additionalFuncs.push(password);
 
     function validateForm() {
-        err=0;
-
+        err = 0;
         var list = document.getElementsByClassName("textField");
-        console.log(list.length);
         for (var i = 0; i < list.length; i++) {
             var element = list.item(i);
-            if(element.value.length == 0) {
+            if (element.value.length == 0) {
                 var message = document.getElementById("errorMessage");
-                message.setAttribute("style","display: outside;" );
+                message.setAttribute("style", "display: outside;");
                 message.setAttribute("style", "color: red;");
                 err++;
                 return;
             } else {
                 isValid(element);
             }
-            if(element.id == "confirmPassword"){
-                var elem = list.item(i-1);
-                confirmPassword(element, elem);
+
+            if (additionalFuncs[0].targetId == element.id) {
+                var elem = list.item(i - 1);
+                additionalFuncs[0].invoke(element,elem);
             }
+
         }
         showRegistrationMessage();
     }
 
     function isValid(element) {
         var pattern = element.getAttribute("pattern");
-        console.log(typeof  pattern);
         var value = element.value;
-        console.log(value+" "+pattern);
+        console.log(value + " " + pattern);
         var valid = value.search(pattern);
 
         showMessage(valid, element);
     }
 
     function showMessage(valid, element) {
-        var errorElement = document.getElementById(element.name+"Message");
-        console.log(errorElement);
+        var errorElement = document.getElementById(element.name + "Message");
+
         if (valid == -1) {
             errorElement.setAttribute("style", "color: red;");
             err++;
@@ -131,23 +166,14 @@
         }
     }
 
-    function confirmPassword(element,elem) {
-        if (element.value != elem.value) {
-            var error = document.getElementById("confirmPasswordMessage");
-            error.setAttribute("style", "color: red;");
-            err++;
-        }
-    }
 
     function showRegistrationMessage() {
-        console.log(err);
         if (err == 0) {
             var warning = document.getElementById("errorMessage");
-            warning.setAttribute("style","display: none");
+            warning.setAttribute("style", "display: none");
             var message = document.getElementById("successMessage");
-            message.setAttribute("style","display: outside;" );
+            message.setAttribute("style", "display: outside;");
             message.setAttribute("style", "color: green;");
-
         }
     }
 
