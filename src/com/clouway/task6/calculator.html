@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="calculator-css.css">
+    <title>Calculator</title>
+</head>
+<body>
+<div class="box">
+    <div class="button-row display" id="input"></div>
+
+    <div class="button-row">
+        <button type="button" class="button" VALUE="CE" OnClick="clean()">CE</button>
+        <button type="button" class="button" VALUE="C" OnClick="deleteLastChar()">C</button>
+        <button type="button" class="button" VALUE="%" OnClick="add('%')">%</button>
+        <button type="button" class="button" VALUE="/" OnClick="add('/')">/</button>
+    </div>
+    <div class="button-row">
+        <button type="button" class="button" VALUE="1" OnClick="add(1)">1</button>
+        <button type="button" class="button" VALUE="2" OnClick="add(2)">2</button>
+        <button type="button" class="button" VALUE="3" OnClick="add(3)">3</button>
+        <button type="button" class="button" VALUE="*" OnClick="add('*')">X</button>
+    </div>
+    <div class="button-row">
+        <button type="button" class="button" VALUE="4" OnClick="add(4)">4</button>
+        <button type="button" class="button" VALUE="5" OnClick="add(5)">5</button>
+        <button type="button" class="button" VALUE="6" OnClick="add(6)">6</button>
+        <button type="button" class="button" VALUE="-" OnClick="add('-')">-</button>
+    </div>
+    <div class="button-row">
+        <button type="button" class="button" VALUE="7" OnClick="add(7)">7</button>
+        <button type="button" class="button" VALUE="8" OnClick="add(8)">8</button>
+        <button type="button" class="button" VALUE="9" OnClick="add(9)">9</button>
+        <button type="button" class="button" VALUE="+" OnClick="add('+')">+</button>
+    </div>
+    <div class="button-row">
+        <button type="button" class="equal-button" VALUE="=" OnClick="compute()">=</button>
+        <button type="button" class="button" VALUE="0" OnClick="add(0)">0</button>
+        <button type="button" class="button" VALUE="," OnClick="add('.')">,</button>
+    </div>
+    <script src="calculator.js"></script>
+</div>
+</body>
+</html>

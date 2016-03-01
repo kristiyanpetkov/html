@@ -1,0 +1,36 @@
+
+
+ .box {
+    background-color: #44505e;
+    width: 350px;
+    border: 5px solid black;
+    position: relative;
+    margin: auto;
+ }
+
+ .display {
+    height: 55px;
+    background-color: #f5ffd8;
+    font-size: 50px;
+    text-align: right;
+ }
+
+ .button {
+    float: left;
+    width: 25%;
+    border: 5px solid black;
+    cursor: pointer;
+    font-size: 30px;
+ }
+
+ .button-row {
+    width: 100%;
+    margin: auto;
+ }
+
+ .equal-button {
+    width: 50%;
+    border: 5px solid black;
+    cursor: pointer;
+    font-size: 30px;
+ }
