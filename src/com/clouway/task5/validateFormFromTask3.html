@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="validateForm.css">
+    <title>validate</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
+            <form class="form-horizontal" role="form" name="myForm" action="" onsubmit="return validateForm()"
+                  method="post">
+                <div >
+                    <label for="firstName" >First Name</label>
+                    <span id="wrongFname" class="incorrect"></span>
+                    <div>
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div >
+                    <label for="lastName" >Last Name</label>
+                    <span id="wrongLname" class="incorrect"> </span>
+                    <div >
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div >
+                    <label for="egn" >EGN</label>
+                    <span id="wrongEgn" class="incorrect"> </span>
+                    <div >
+                        <input type="text" id="egn" placeholder="EGN" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div >
+                    <label for="age">Age</label>
+                    <span id="wrongAge" class="incorrect"> </span>
+                    <div >
+                        <input type="text" id="age" placeholder="Age" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div >
+                    <label for="address" class=" control-label">Address</label>
+                    <span id="wrongAddress" class="incorrect"> </span>
+                    <div >
+                        <input type="text" id="address" placeholder="Address" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                <div >
+                    <label for="password" class=" control-label">Password</label>
+                    <span id="wrongPassword" class="incorrect"></span>
+                    <div >
+                        <input type="password" id="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <div >
+                    <label for="conformPassword" class=" control-label">Conform password</label>
+                    <div >
+                        <input type="password" id="conformPassword" placeholder="Conform Password" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div >
+                    <div>
+                        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div>
+    </div>
+</div>
+<script src="formValidator.js"></script>
+</body>
+</html>
