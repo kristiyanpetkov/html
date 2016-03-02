@@ -11,16 +11,22 @@ function deleteLastChar() {
     setValue("input", value.slice(0, -1));
 }
 
-function add(val) {
-    var currentValue = getValue("input");
-    var signsArray = ['.', '*', '/', '+', '-', '%'];
-    if ((currentValue && signsArray.indexOf(currentValue.slice(-1)) == -1) || signsArray.indexOf(val) == -1) {
-        if (isDotAllowed(currentValue,signsArray) && val == '.' ){
-            setValue("input", currentValue + val);
-        }else if (val != '.'){
-            setValue("input", currentValue + val);
-        }
+function add(lastAddedChar) {
+    var expresion = getValue("input");
+    var operators = ['.', '*', '/', '+', '-', '%'];
+    if (lastAddedChar == '.' && !isDotAllowed(expresion,operators)){
+        return;
     }
+    if (isOperatorAllowed(operators,expresion) || !isOperator(operators,lastAddedChar)) {
+        setValue("input", expresion + lastAddedChar);
+    }
+}
+function isOperator(operators,lastAddedChar){
+    return operators.indexOf(lastAddedChar) != -1;
+}
+
+function isOperatorAllowed(operators,expresion){
+    return expresion && (operators.indexOf(expresion.slice(-1)) == -1);
 }
 
 function isDotAllowed(value, signsArray){
