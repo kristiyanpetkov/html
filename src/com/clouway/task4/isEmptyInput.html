@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="emptyField.css">
     <title>isEmptyInput</title>
 </head>
 <body>
 
-<form name="myForm" action="../localPage.html" onsubmit="return validateForm()" method="get">
+<form name="myForm" action="" onsubmit="return validateForm('myForm','fname','incorrectFname')" method="get">
     First name: <input id="fname" type="text" name="fname">
-    <p id="demo" style="color:red;"></p><br>
+    <p id="incorrectFname" class="incorrect"></p><br>
     <input type="submit" value="Submit">
 </form>
 <script src="emptyField.js"></script>
