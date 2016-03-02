@@ -15,7 +15,7 @@ function add(val) {
     var currentValue = getValue("input");
     var signsArray = ['.', '*', '/', '+', '-', '%'];
     if ((currentValue && signsArray.indexOf(currentValue.slice(-1)) == -1) || signsArray.indexOf(val) == -1) {
-        if (lastCharInValueFromArray(currentValue,signsArray) != '.' && val == '.' ){
+        if (isDotAllowed(currentValue,signsArray) && val == '.' ){
             setValue("input", currentValue + val);
         }else if (val != '.'){
             setValue("input", currentValue + val);
@@ -23,14 +23,17 @@ function add(val) {
     }
 }
 
-function lastCharInValueFromArray(value, signsArray){
+function isDotAllowed(value, signsArray){
     var char='';
     for (var i=0; i < value.length; i++ ){
         if (signsArray.indexOf(value.charAt(i)) != -1){
             char=value.charAt(i);
         }
     }
-    return char;
+    if (char == '.'){
+        return false;
+    }
+    return true;
 }
 
 function compute() {
