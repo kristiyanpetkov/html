@@ -16,37 +16,37 @@ function validateForm() {
     var passwordValidator=new RegExp("^([a-z\A-Z\0-9]){6,18}$");
 
     if (!nameValidator.test(fname)) {
-        visible("wrongFname");
+        showElement("wrongFname");
         isValid=false;
     }else {
         hidden("wrongFname");
     }
     if (!nameValidator.test(lname)) {
-        visible("wrongLname");
+        showElement("wrongLname");
         isValid=false;
     }else {
         hidden("wrongLname");
     }
     if (!egnValidator.test(egn)) {
-        visible("wrongEgn");
+        showElement("wrongEgn");
         isValid=false;
     }else {
         hidden("wrongEgn");
     }
     if (!ageValidator.test(age)) {
-        visible("wrongAge");
+        showElement("wrongAge");
         isValid=false;
     }else {
         hidden("wrongAge");
     }
     if (!addressValidator.test(address)) {
-        visible("wrongAddress");
+        showElement("wrongAddress");
         isValid=false;
     }else {
         hidden("wrongAddress");
     }
     if (!passwordValidator.test(password)) {
-        visible("wrongPassword");
+        showElement("wrongPassword");
         isValid=false;
     }else{
         hidden("wrongPassword");
@@ -59,7 +59,7 @@ function  hidden(elementId){
     element.style.visibility = 'hidden';
 }
 
-function visible(elementId){
+function showElement(elementId){
     var element = document.getElementById(elementId);
     element.innerHTML = " incorrect";
     element.style.visibility = 'visible';
