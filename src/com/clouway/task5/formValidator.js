@@ -16,45 +16,51 @@ function validateForm() {
     var passwordValidator=new RegExp("^([a-z\A-Z\0-9]){6,18}$");
 
     if (!nameValidator.test(fname)) {
-        setVisibility("wrongFname", "visible");
+        visible("wrongFname");
         isValid=false;
     }else {
-        setVisibility("wrongFname", "hidden");
+        hidden("wrongFname");
     }
     if (!nameValidator.test(lname)) {
-        setVisibility("wrongLname", "visible");
+        visible("wrongLname");
         isValid=false;
     }else {
-        setVisibility("wrongLname", "hidden");
+        hidden("wrongLname");
     }
     if (!egnValidator.test(egn)) {
-        setVisibility("wrongEgn", "visible");
+        visible("wrongEgn");
         isValid=false;
     }else {
-        setVisibility("wrongEgn", "hidden");
+        hidden("wrongEgn");
     }
     if (!ageValidator.test(age)) {
-        setVisibility("wrongAge", "visible");
+        visible("wrongAge");
         isValid=false;
     }else {
-        setVisibility("wrongAge", "hidden");
+        hidden("wrongAge");
     }
     if (!addressValidator.test(address)) {
-        setVisibility("wrongAddress", "visible");
+        visible("wrongAddress");
         isValid=false;
     }else {
-        setVisibility("wrongAddress", "hidden");
+        hidden("wrongAddress");
     }
     if (!passwordValidator.test(password)) {
-        setVisibility("wrongPassword", "visible");
+        visible("wrongPassword");
         isValid=false;
     }else{
-        setVisibility("wrongPassword", "hidden");
+        hidden("wrongPassword");
     }
     return isValid;
 }
-function setVisibility(elementName,visibility){
-    var element = document.getElementById(elementName);
+
+function  hidden(elementId){
+    var element = document.getElementById(elementId);
+    element.style.visibility = 'hidden';
+}
+
+function visible(elementId){
+    var element = document.getElementById(elementId);
     element.innerHTML = " incorrect";
-    element.style.visibility = visibility;
+    element.style.visibility = 'visible';
 }
