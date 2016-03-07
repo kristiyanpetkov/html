@@ -1,18 +1,7 @@
 body {
     background-color: #eee;
 }
-.box{
-
-}
 
 .incorrect{
     color: red;
-}
-
-.visible{
-    visibility: visible;
-}
-
-.invisible{
-    visibility: hidden;
 }
