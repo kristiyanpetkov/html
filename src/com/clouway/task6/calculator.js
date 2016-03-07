@@ -3,22 +3,22 @@
  */
 
 function clean() {
-    setValue("input", "");
+    setElementValue("input", "");
 }
 
 function deleteLastChar() {
-    var value = getValue("input");
-    setValue("input", value.slice(0, -1));
+    var value = getElementValue("input");
+    setElementValue("input", value.slice(0, -1));
 }
 
 function add(lastAddedChar) {
-    var expresion = getValue("input");
+    var expresion = getElementValue("input");
     var operators = ['.', '*', '/', '+', '-', '%'];
     if (lastAddedChar == '.' && !isDotAllowed(expresion,operators)){
         return;
     }
     if (isOperatorAllowed(operators,expresion) || !isOperator(operators,lastAddedChar)) {
-        setValue("input", expresion + lastAddedChar);
+        setElementValue("input", expresion + lastAddedChar);
     }
 }
 function isOperator(operators,lastAddedChar){
@@ -44,17 +44,17 @@ function isDotAllowed(value, signsArray){
 
 function compute() {
     try {
-        setValue("input", eval(getValue("input")));
+        setElementValue("input", eval(getElementValue("input")));
     }
     catch (e) {
         c('Error')
     }
 }
 
-function getValue(elementId) {
+function getElementValue(elementId) {
     return document.getElementById(elementId).innerHTML;
 }
 
-function setValue(elementId, value) {
+function setElementValue(elementId, value) {
     document.getElementById(elementId).innerHTML = value;
 }
