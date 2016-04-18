@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check if a field is empty or not</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+<p>Please enter something:</p>
+<input id="fieldInput">
+<button type="button" onclick="myFunction()">Submit</button>
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var x, text;
+        x = document.getElementById("fieldInput").value;
+        if (x.length > 0) {
+            text = "Field is NOT empty!"
+        } else {
+            text = "Field is empty!"
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+</body>
+</html>
