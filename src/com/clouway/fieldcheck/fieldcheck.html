@@ -13,14 +13,15 @@
 
 <script>
     function myFunction() {
-        var x, text;
-        x = document.getElementById("fieldInput").value;
-        if (x.length > 0) {
-            text = "Field is NOT empty!"
+        var text, erroMessage;
+        text = document.getElementById("fieldInput").value;
+        if (text.length <= 0) {
+            erroMessage = "Field is empty!";
+            document.getElementById("demo").innerHTML = erroMessage;
         } else {
-            text = "Field is empty!"
+            erroMessage = "";
+            document.getElementById("demo").innerHTML = erroMessage;
         }
-        document.getElementById("demo").innerHTML = text;
     }
 </script>
 </body>
