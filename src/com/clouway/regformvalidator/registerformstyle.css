@@ -1,0 +1,106 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+#container {
+    width: 550px;
+    background-color: rgba(250, 250, 252, .9);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 3px #999;
+}
+
+#container_body {
+    padding: 20px;
+}
+
+.form_title {
+    font-size: 35px;
+    color: #3B5998;
+    text-align: center;
+    padding: 10px;
+    font-weight: normal;
+}
+
+#form_name {
+    padding: 25px 0 0 15px;
+}
+
+.input_name {
+    width: 207px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#egn_form {
+    clear: both;
+    padding: 15px 0 10px 0px;
+}
+
+.input_egn {
+    width: 434px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#age_form {
+    clear: both;
+    padding: 15px 0 10px 0px;
+}
+
+.input_age {
+    width: 434px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#address_form {
+    clear: both;
+    padding: 15px 0 10px 0px;
+}
+
+.input_address {
+    width: 434px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#password_form {
+    padding: 10px 0 10px 0px;
+}
+
+#cpassword_form {
+    padding: 10px 0 10px 0px;
+}
+
+.input_password {
+    width: 434px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.input_cpassword {
+    width: 434px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#sign_user {
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+    background-color: #3B5998;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#errorBox {
+    color: #F00;
+}
