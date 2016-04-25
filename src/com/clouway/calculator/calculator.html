@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Calculator</title>
+    <link rel="stylesheet" href="calculator.css"/>
+    <script src="calculator.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="display">
+        <input id="value" name="textfield" value="0" readonly size="33" class="text">
+    </div>
+
+    <div class="keys">
+
+        <p><input type="button" class="button" name="C" value="C" onclick="clearAll()">
+            <input type="button" class="button" value="CE" onclick="clearLastSymbol()">
+            <img src="casiologo.png"  style="width:150px; height:28px; padding-left: 20px">
+        </p>
+
+
+        <p><input type="button" class="button" value="7" onclick="numInput('7')">
+            <input type="button" class="button" value="8" onclick="numInput('8')">
+            <input type="button" class="button" value="9" onclick="numInput('9')">
+            <input type="button" class="button" value="/" onclick="setOperation('/')">
+        </p>
+
+        <p><input type="button" class="button" value="4" onclick="numInput('4')">
+            <input type="button" class="button" value="5" onclick="numInput('5')">
+            <input type="button" class="button" value="6" onclick="numInput('6')">
+            <input type="button" class="button" value="*" onclick="setOperation('*')">
+        </p>
+
+        <p><input type="button" class="button" value="1" onclick="numInput('1')">
+            <input type="button" class="button" value="2" onclick="numInput('2')">
+            <input type="button" class="button" value="3" onclick="numInput('3')">
+            <input type="button" class="button" value="-" onclick="setOperation('-')">
+        </p>
+
+        <p><input type="button" class="button" value="0" onclick="numInput('0')">
+            <input type="button" class="button" value="." onclick="numInput('.')">
+            <input type="button" class="button" value="=" onclick="calculate()">
+            <input type="button" class="button" value="+" onclick="setOperation('+')">
+        </p>
+
+    </div>
+
+</div>
+
+</body>
