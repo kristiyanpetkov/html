@@ -1,21 +1,22 @@
 function validate(fieldName, regexp, errorMsg, errorField) {
-  console.log(fieldName);
   var valuee = document.forms["form"][fieldName].value;
+
   if (!valuee.match(regexp)) {
     document.getElementById(errorField).innerHTML = errorMsg;
     document.getElementById("sign_user").disabled = true;
     return;
   }
+
   document.getElementById(errorField).innerHTML = "";
-  if (document.form.address.value != "" &&
-          document.form.age.value != "" &&
-          document.form.cpassword.value != "" &&
-          document.form.egn.value != "" &&
-          document.form.firstname.value != "" &&
-          document.form.lastname.value != "" &&
-          document.form.password.value != "") {
-    document.getElementById("sign_user").disabled = false;
+  var f = document.forms["form"].elements;
+
+  for (var i = 0; i < f.length - 1; i++) {
+    if (f[i].value.length == 0) {
+      return;
+    }
   }
+
+  document.getElementById("sign_user").disabled = false;
 }
 
 function Submit() {
