@@ -1,3 +1,4 @@
+var enterOnce;
 function numInput(digit) {
   var display = document.getElementById("value");
   if (display.value === '0') {
@@ -5,6 +6,24 @@ function numInput(digit) {
     display.value += digit;
   } else {
     display.value += digit;
+  }
+}
+
+function decimalInput() {
+  var display = document.getElementById("value");
+  if (display.value.indexOf('.') === -1) {
+    display.value += '.';
+  }
+  var display2 = document.getElementById("value");
+  var displayValue = document.getElementById("value").value;
+  var chars = displayValue.split("");
+  for (i = 0; i < chars.length; i++) {
+    if (chars[i] == "+" || chars[i] == "*" || chars[i] == "-" || chars[i] == "/") {
+      if (enterOnce == true && !isNaN(chars[chars.length - 1])) {
+        display2.value += '.';
+        enterOnce = false;
+      }
+    }
   }
 }
 
@@ -17,6 +36,7 @@ function clearLastSymbol() {
 
 function clearAll() {
   document.getElementById("value").value = 0;
+  enterOnce = true;
 }
 
 function setOperation(operation) {
@@ -28,6 +48,7 @@ function setOperation(operation) {
       calculate();
     }
   }
+  enterOnce = true;
   display.value = display.value + operation;
 }
 
