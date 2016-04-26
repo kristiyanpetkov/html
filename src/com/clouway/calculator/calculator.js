@@ -13,14 +13,14 @@ function decimalInput() {
   var display = document.getElementById("value");
   if (display.value.indexOf('.') === -1) {
     display.value += '.';
+    enterOnce=false;
   }
-  var display2 = document.getElementById("value");
   var displayValue = document.getElementById("value").value;
   var chars = displayValue.split("");
   for (i = 0; i < chars.length; i++) {
     if (chars[i] == "+" || chars[i] == "*" || chars[i] == "-" || chars[i] == "/") {
       if (enterOnce == true && !isNaN(chars[chars.length - 1])) {
-        display2.value += '.';
+        display.value += '.';
         enterOnce = false;
       }
     }
