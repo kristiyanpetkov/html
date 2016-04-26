@@ -14,23 +14,9 @@
 <script>
     function check() {
         var display = document.getElementById("fraction").value;
-        var arrayOfChars = display.split("");
-        var firstPart = "";
-        var secondPart = "";
-        var charsBeforeDot = true;
-        for (var i = 0; i < arrayOfChars.length; i++) {
-            if (arrayOfChars[i] != "." && charsBeforeDot == true) {
-                firstPart += arrayOfChars[i];
-                continue;
-            } else {
-                charsBeforeDot = false;
-            }
-            secondPart += arrayOfChars[i];
-        }
+        var arr = display.split(".");
 
-        secondPart = secondPart.slice(1, secondPart.length);
-
-        if (firstPart.length <= 10 && secondPart.length <= 5) {
+        if (arr[0].length <= 10 && arr[1].length <= 5) {
             document.getElementById("demo").innerHTML = "Числото има максимална дължина на цялата част до 10 символа и на дробната част - до 5 символа".fontcolor("green");
         } else {
             document.getElementById("demo").innerHTML = "Числото няма максимална дължина на цялата част до 10 символа и на дробната част - до 5 символа".fontcolor("red");
