@@ -17,36 +17,49 @@
 
             <div id="errorBox"></div>
 
-            <input type="text" name="firstname" oninput="validate('firstname',/^([a-zA-Z]{1,15})$/,'Firstname must be between 1 and 15 characters!','errorBox')" placeholder="Firstname" class="input_name">
+            <input type="text" name="firstname"
+                   oninput="validate('firstname',/^([a-zA-Z]{1,15})$/,'Firstname must be between 1 and 15 characters and should contain only letters and digits!','errorBox')"
+                   placeholder="Firstname" class="input_name">
 
-            <input type="text" name="lastname" oninput="validate('lastname',/^([a-zA-Z]{1,15})$/,'Lastname must be between 1 and 15 characters!','errorBox')" placeholder="Lastname" class="input_name">
+            <input type="text" name="lastname"
+                   oninput="validate('lastname',/^([a-zA-Z]{1,15})$/,'Lastname must be between 1 and 15 characters!','errorBox')"
+                   placeholder="Lastname" class="input_name">
 
             <div id="egn_form">
-                <input type="text" name="egn" oninput="validate('egn',/^([0-9]){10}$/,'EGN must contains only digits and should be 10 digits long','errorBox')" placeholder="EGN" class="input_egn">
+                <input type="text" name="egn"
+                       oninput="validate('egn',/^([0-9]){10}$/,'EGN must contains only digits and should be 10 digits long','errorBox')"
+                       placeholder="EGN" class="input_egn">
             </div>
 
             <div id="age_form">
-                <input type="text" name="age" oninput="validate('age',/^(1[8-9]|[2-9][0-9]|109|1[0-1][0-8])$/,'Your age must be between 18 and 118!','errorBox')" placeholder="Age" class="input_age">
+                <input type="text" name="age"
+                       oninput="validate('age',/^(1[8-9]|[2-9][0-9]|109|1[0-1][0-8])$/,'Your age must be between 18 and 118!','errorBox')"
+                       placeholder="Age" class="input_age">
             </div>
 
             <div id="address_form">
-                <input type="text" name="address" oninput="validate('address',/^([a-zA-Z0-9 _]{1,100})$/,'Email address must be between 1 and 100 characters!','errorBox')" placeholder="Address"
+                <input type="text" name="address"
+                       oninput="validate('address',/^([a-zA-Z0-9 _]{1,100})$/,'Address must be between 1 and 100 characters!','errorBox')"
+                       placeholder="Address"
                        class="input_address">
             </div>
 
             <div id="password_form">
-                <input type="password" name="password" oninput="validate('password',/^([a-zA-Z0-9]{6,18})$/,'Password must contain only latin letters and arabic digits and must be in a range 6-18 characters long!','errorBox')" placeholder="Password"
+                <input type="password" name="password"
+                       oninput="validate('password',/^([a-zA-Z0-9]{6,18})$/,'Password must contain only letters and digits and must be in a range 6-18 characters!','errorBox')"
+                       placeholder="Password"
                        class="input_password">
             </div>
 
             <div id="cpassword_form">
-                <input type="password" name="cpassword" oninput="validate('cpassword',/^([a-zA-Z0-9]{6,18})$/,'Password must contain only latin letters and arabic digits and must be in a range 6-18 characters long!','errorBox')"
+                <input type="password" name="cpassword"
+                       oninput="validate('cpassword',/^([a-zA-Z0-9]{6,18})$/,'Password must contain only letters and digits and must be in a range 6-18 characters!','errorBox')"
                        placeholder="Re-Enter Password"
                        class="input_cpassword">
             </div>
             <div id="regSuccessBox"></div>
             <div>
-                <button id="sign_user" type="button" onclick="Submit()">Sign Up</button>
+                <button id="sign_user" type="button" disabled onclick="Submit()">Sign Up</button>
             </div>
 
         </form>
