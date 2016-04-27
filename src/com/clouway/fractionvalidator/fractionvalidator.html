@@ -7,13 +7,19 @@
 <body>
 
 <p>Please enter a fraction:</p>
-<label for="fraction"></label><input id="fraction" pattern="\d+(\.\d*)?" title="Only digits and '.' allowed!">
+<label for="fraction"></label><input id="fraction" pattern="^\d+(\.\d+)*$" title="Only digits and '.' allowed!">
 <button type="button" onclick="check()">Check</button>
 <p id="demo"></p>
 
 <script>
     function check() {
         var display = document.getElementById("fraction").value;
+
+        if (display.split('.', -1).length != 2 || !display.match(/^\d+(\.\d+)*$/)) {
+            document.getElementById("demo").innerHTML = "Please enter a valid fraction number!".fontcolor("red");
+            return;
+        }
+
         var arr = display.split(".");
 
         if (arr[0].length <= 10 && arr[1].length <= 5) {
