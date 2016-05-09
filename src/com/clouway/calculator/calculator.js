@@ -4,16 +4,15 @@ function numInput(digit) {
   if (display.value === '0') {
     display.value = '';
     display.value += digit;
-  } else {
-    display.value += digit;
   }
+  display.value += digit;
 }
 
 function decimalInput() {
   var display = document.getElementById("value");
   if (display.value.indexOf('.') === -1) {
     display.value += '.';
-    enterOnce=false;
+    enterOnce = false;
   }
   var displayValue = document.getElementById("value").value;
   var chars = displayValue.split("");
