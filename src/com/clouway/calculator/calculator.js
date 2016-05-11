@@ -4,12 +4,6 @@ function enterDigit(digit) {
   var displayValue = document.getElementById("screen").value;
   var chars = displayValue.split("");
 
-  if (chars[chars.length - 1] == ("+") || chars[chars.length - 1] == ("-") || chars[chars.length - 1] == ("*") || chars[chars.length - 1] == ("/")) {
-    if (digit == 0) {
-      return;
-    }
-  }
-
   if (display.value === '0') {
     display.value = '';
   }
@@ -21,6 +15,7 @@ function enterPoint() {
   if (display.value.indexOf('.') === -1) {
     display.value += '.';
     enterOnce = false;
+    return;
   }
   var displayValue = document.getElementById("screen").value;
   var chars = displayValue.split("");
