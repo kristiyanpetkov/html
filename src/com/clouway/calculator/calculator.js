@@ -1,20 +1,28 @@
 var enterOnce;
-function numInput(digit) {
-  var display = document.getElementById("value");
+function enterDigit(digit) {
+  var display = document.getElementById("screen");
+  var displayValue = document.getElementById("screen").value;
+  var chars = displayValue.split("");
+
+  if (chars[chars.length - 1] == ("+") || chars[chars.length - 1] == ("-") || chars[chars.length - 1] == ("*") || chars[chars.length - 1] == ("/")) {
+    if (digit == 0) {
+      return;
+    }
+  }
+
   if (display.value === '0') {
     display.value = '';
-    display.value += digit;
   }
   display.value += digit;
 }
 
-function decimalInput() {
-  var display = document.getElementById("value");
+function enterPoint() {
+  var display = document.getElementById("screen");
   if (display.value.indexOf('.') === -1) {
     display.value += '.';
     enterOnce = false;
   }
-  var displayValue = document.getElementById("value").value;
+  var displayValue = document.getElementById("screen").value;
   var chars = displayValue.split("");
   for (i = 0; i < chars.length; i++) {
     if (chars[i] == "+" || chars[i] == "*" || chars[i] == "-" || chars[i] == "/") {
@@ -27,20 +35,20 @@ function decimalInput() {
 }
 
 function clearLastSymbol() {
-  var display = document.getElementById("value");
+  var display = document.getElementById("screen");
   if (display != 0) {
     display.value = display.value.substring(0, display.value.length - 1);
   }
 }
 
 function clearAll() {
-  document.getElementById("value").value = 0;
+  document.getElementById("screen").value = 0;
   enterOnce = true;
 }
 
 function setOperation(operation) {
-  var display = document.getElementById("value");
-  var displayValue = document.getElementById("value").value;
+  var display = document.getElementById("screen");
+  var displayValue = document.getElementById("screen").value;
   var chars = displayValue.split("");
   for (i = 0; i < chars.length; i++) {
     if (chars[i] == "+" || chars[i] == "*" || chars[i] == "-" || chars[i] == "/") {
@@ -52,7 +60,7 @@ function setOperation(operation) {
 }
 
 function calculate() {
-  var display = document.getElementById("value");
+  var display = document.getElementById("screen");
   display.value = eval(display.value);
 }
 
